@@ -1,0 +1,8 @@
+{
+  "uuid": "cataas@cataas.com",
+  "name": "Cat GIF Viewer",
+  "description": "Shows random cat GIFs from cataas.com in your panel. Click the cat icon to view a random cat GIF!",
+  "shell-version": ["42"],
+  "url": "https://github.com/cataas/gnome-cataas",
+  "version": 1
+}
