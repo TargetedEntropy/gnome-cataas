@@ -9,6 +9,7 @@ const Clutter = imports.gi.Clutter;
 const Soup = imports.gi.Soup;
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
+const GObject = imports.gi.GObject;
 
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
@@ -28,9 +29,10 @@ function _ensureHttpSession() {
     return _httpSession;
 }
 
-const CatGifDialog = class CatGifDialog extends ModalDialog.ModalDialog {
-    constructor(gifPath) {
-        super({
+var CatGifDialog = GObject.registerClass(
+class CatGifDialog extends ModalDialog.ModalDialog {
+    _init(gifPath) {
+        super._init({
             styleClass: 'cataas-dialog',
             destroyOnClose: true
         });
@@ -105,9 +107,10 @@ const CatGifDialog = class CatGifDialog extends ModalDialog.ModalDialog {
         }
         this.close(global.get_current_time());
     }
-};
+});
 
-const CatGifIndicator = class CatGifIndicator extends PanelMenu.Button {
+var CatGifIndicator = GObject.registerClass(
+class CatGifIndicator extends PanelMenu.Button {
     _init() {
         super._init(0.0, 'Cat GIF Viewer', false);
 
@@ -202,7 +205,7 @@ const CatGifIndicator = class CatGifIndicator extends PanelMenu.Button {
         }
         super.destroy();
     }
-};
+});
 
 class Extension {
     constructor() {
